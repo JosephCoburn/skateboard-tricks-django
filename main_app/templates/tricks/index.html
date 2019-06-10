@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Trick List</h1>
+
+{% for trick in tricks %}
+    <div class="card">
+        <a href="{% url 'detail' trick.id %}">
+            <div class="card-content">
+                <span class="card-title">{{ trick.name }}</span>
+                <p>Stance: {{ trick.stance }}</p>
+                <p>Description: {{ trick.description }}</p>
+                {% if trick.dial > 20 %}
+                    <p>Dial: {{ trick.dial }}</p>
+                {% else %}
+                    <p>Dial: Noob</p>
+                {% endif %}
+            </div>
+        </a>
+    </div>
+{% endfor %}
+
+{% endblock %}
